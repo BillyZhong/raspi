@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Raspi</title>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="icon" href="/images/hackmit.ico">
+	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+</head>
+<style>
+	@font-face { font-family: Dense; src: url('/fonts/Dense-Regular.otf'); }
+	@font-face { font-family: Helvetica Neue; src: url('fonts/HelveticaNeue-UltraLight.otf');}
+	.description{position:relative;top:-5px;font:100 4.2em "Helvetica Neue","Open Sans",sans-serif;color:#e5e5e5;line-height:.75;}
+	.express{display:block;font:4.5em "Helvetica Neue","Open Sans",sans-serif;font-weight:100;color:#353535;margin-bottom:.25em;}
+	.btn-outline {
+	    background-color: transparent;
+	    color: inherit;
+	    transition: all .5s;
+	}
+
+	.btn-primary.btn-outline {
+	    color: #428bca;
+	}
+
+	.btn-success.btn-outline {
+	    color: #5cb85c;
+	}
+
+	.btn-info.btn-outline {
+	    color: #5bc0de;
+	}
+
+	.btn-warning.btn-outline {
+	    color: #f0ad4e;
+	}
+
+	.btn-danger.btn-outline {
+	    color: #d9534f;
+	}
+
+	.btn-primary.btn-outline:hover,
+	.btn-success.btn-outline:hover,
+	.btn-info.btn-outline:hover,
+	.btn-warning.btn-outline:hover,
+	.btn-danger.btn-outline:hover {
+	    color: #fff;
+	}
+</style>
+<script>
+	function clicked(){
+		$("#about").click(function() {
+		    $('html, body').animate({
+		        scrollTop: $("#elementtoScrollToID").offset().top
+		    }, 2000);
+		});
+	}
+</script>
+<body>
+	<a href="https://github.com/BillyZhong"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/c6625ac1f3ee0a12250227cf83ce904423abf351/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png"></a>
+	<div class="row" style="background:url('/images/hackmit.png') no-repeat;
+			-webkit-background-size: cover;
+	  		-moz-background-size: cover;
+	  		-o-background-size: cover;
+	  		background-size: cover;">
+	  	<div class="col-md-7 col-md-offset-1" style="padding-top:275px;padding-bottom:260px">
+	  		<div class="express">Raspi</div>
+	  		<span class="description">Fast, unopinionated, minimalist Server for the Raspberry Pi</span>
+	  	</div>
+	</div>
+	<div class="row" style="padding-bottom:50px;background: white;
+			-webkit-background-size: cover;
+	  		-moz-background-size: cover;
+	  		-o-background-size: cover;
+	  		background-size: cover;">
+	  		<div class="col-md-5 col-md-offset-1" style="padding-top:50px">
+	  			<center>
+	  				<h1>About the Server</h1>
+	  			</center>
+	  			<h3>Built with the MEAN Stack, the Raspi Server rests on the Raspian Debian/Linux ARMv6 Distribution. Physically the server runs on the Raspberry Pi Microprocessor, which hosts the server. Within the server itself, the Pi runs a MongoDB database for recording users and passwords. In order to process server file systems, Express, a minimalist NodeJS Framework, is used to essentially map the local file system onto the server. To keep the page responsive, AngularJS, a dynamic frontend, renders the pages to allow quick page changes, without sending any actual requests. Angular also manages part of the login verification system. In order to submit commands, a NodeJS library, Socket.io, is used to send asynchronous event-based data, employing a nonblocking structure. In the backend, an asynchronous IO Engine built on Chrome's Javascript Runtime, NodeJS, allows for fast, scalable network applications. In order to manage Linux based commands, the NodeJS child_process class is used to run Linux commands such as Crontab, for time-based commands, Heyu, for controlling appliances, and Pianobar, for controlling music. All of these libraries and frameworks wrap up to create the fast, minimalist server that is Raspi.</h3>
+	  		</div>
+	  		<div class="col-md-4 col-md-offset-1" style="padding-top:50px">
+	  			<img src="/images/fam.jpg" class="img-rounded" style="width:457px;padding-bottom:20px">
+	  			<div class="well well-lg" style="background: url('/images/hackmit.png');">
+	  				<h1>Login</h1>
+	  				<label for="user">User</label>
+    				<input type="text" class="form-control" id="user" placeholder="Enter User">
+    				<br>
+    				<label for="password">Password</label>
+    				<input type="password" class="form-control" id="password" placeholder="Enter Password">
+	  			</div>
+	  			<a class="btn btn-success btn-outline btn-lg col-md-offset-9">Raspi Me!</a>
+	  		</div>
+	</div>
+</body>
+</html>
