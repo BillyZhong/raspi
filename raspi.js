@@ -6,5 +6,4 @@ app.get('*', function(req,res){
 	res.sendFile(pathname + req.path);
 });
 
-
 app.listen(8080);
