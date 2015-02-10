@@ -1,128 +1,23 @@
 <!DOCTYPE html>
-<html ng-app="routeApp">
+<html ng-app="raspiApp">
 <head>
 	<title>Raspi</title>
 	<base href="/">
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/styles.css">
 	<link rel="icon" type="image/png" href="/images/raspicon.png">
 	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.11/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.11/angular-route.min.js"></script>
     <script src="angular.js"></script>
+    <script src="/controllers/navController.js"></script>
+    <script src="/controllers/loginController.js"></script>
+    <script src="/controllers/homeController.js"></script>
+    <script src="/controllers/lightsController.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.3.2.js"></script>
+    <script src="socketio.js"></script>
+    <script src="/js/misc.js"></script>
 </head>
-<style>
-	@font-face { font-family: Dense; src: url('/fonts/Dense-Regular.otf'); }
-	@font-face { font-family: Helvetica Neue; src: url('fonts/HelveticaNeue-UltraLight.otf');}
-	.description{position:relative;top:-5px;font:100 4.2em "Helvetica Neue","Open Sans",sans-serif;color:#e5e5e5;line-height:.75;}
-	.express{display:block;font:4.5em "Helvetica Neue","Open Sans",sans-serif;font-weight:100;color:#353535;margin-bottom:.25em;}
-	.btn-outline {
-	    background-color: #ffffff;
-	    color: inherit;
-	    transition: all .5s;
-	}
-
-	.btn-primary.btn-outline {
-	    color: #428bca;
-	}
-
-	.btn-success.btn-outline {
-	    color: #5cb85c;
-	}
-
-	.btn-info.btn-outline {
-	    color: #5bc0de;
-	}
-
-	.btn-warning.btn-outline {
-	    color: #f0ad4e;
-	}
-
-	.btn-danger.btn-outline {
-	    color: #d9534f;
-	}
-
-	.btn-primary.btn-outline:hover,
-	.btn-success.btn-outline:hover,
-	.btn-info.btn-outline:hover,
-	.btn-warning.btn-outline:hover,
-	.btn-danger.btn-outline:hover {
-	    color: #fff;
-	}
-
-	#bar {
-	  background: url('/images/galaxy.jpg');
-	  height: 7px;
-	  background-size: cover;
-	  background-position: left 60%;
-	  position: fixed;
-	  top: 0;
-	  width: 100%;
-	  overflow: hidden;
-	  z-index: 1000;
-	}
-
-	#bar .reflection {
-	  display: inline-block;
-	  position: absolute;
-	  top: 0;
-	  left: 0;
-	  width: 20px;
-	  height: 20px;
-	  background: #fff;
-	  border-radius: 100%;
-	  margin-top: -20px;
-	  box-shadow: 0px 0px 32px 8px rgba(255, 255, 255, 0.76);
-	  -moz-box-shadow: 0px 0px 32px 8px rgba(255, 255, 255, 0.76);
-	  -webkit-box-shadow: 0px 0px 32px 8px rgba(255, 255, 255, 0.76);
-
-	  animation: move 1.3s infinite;
-	  animation-timing-function: linear;
-
-	  -webkit-animation: move 1.3s infinite;
-	  -webkit-animation-timing-function: linear;
-	}
-
-	#barNav {
-	  background: url('/images/galaxy.jpg');
-	  height: 7px;
-	  background-size: cover;
-	  background-position: left 60%;
-	  position: fixed;
-	  top: 50px;
-	  width: 100%;
-	  overflow: hidden;
-	  z-index: 1000;
-	}
-
-	#barNav .reflection {
-	  display: inline-block;
-	  position: absolute;
-	  top: 50px;
-	  left: 0;
-	  width: 20px;
-	  height: 20px;
-	  background: #fff;
-	  border-radius: 100%;
-	  margin-top: -20px;
-	  box-shadow: 0px 0px 32px 8px rgba(255, 255, 255, 0.76);
-	  -moz-box-shadow: 0px 0px 32px 8px rgba(255, 255, 255, 0.76);
-	  -webkit-box-shadow: 0px 0px 32px 8px rgba(255, 255, 255, 0.76);
-
-	  animation: move 1.3s infinite;
-	  animation-timing-function: linear;
-
-	  -webkit-animation: move 1.3s infinite;
-	  -webkit-animation-timing-function: linear;
-	}
-</style>
-<script>
-	function setHeaderScroll() {
-	  var height = $(document).outerHeight() - $(window).outerHeight(),
-	    perc = ($(window).scrollTop()/height*100);
-	  $('#bar').css({"backgroundPosition": "left "+perc+"%"});
-	  $('#barNav').css({"backgroundPosition": "left "+perc+"%"});
-	}
-</script>
 <body onscroll="setHeaderScroll()">
 <div ng-controller="navController">
 	<nav class="navbar navbar-default navbar-fixed-top" ng-show="show">
@@ -153,6 +48,8 @@
 	    </nav>
 	<div id="barNav" ng-show="show"></div>
 </div>
-<div ng-view></div>
+<div ng-controller="loginController">
+	<div ng-view></div>
+</div>
 </body>
 </html>

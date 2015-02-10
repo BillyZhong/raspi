@@ -1,4 +1,4 @@
-angular.module('routeApp', ['ngRoute'])
+angular.module('raspiApp', ['ngRoute'])
 .config(['$routeProvider', '$locationProvider',
 	function($routeProvider, $locationProvider){
 		$routeProvider
@@ -6,7 +6,8 @@ angular.module('routeApp', ['ngRoute'])
 				templateUrl: '/views/login.html'
 			})
 			.when('/home',{
-				templateUrl: '/views/home.html'
+				templateUrl: '/views/home.html',
+				controller : 'homeController'
 			})
 			.when('/about',{
 				templateUrl: '/views/about.html'
@@ -27,32 +28,6 @@ angular.module('routeApp', ['ngRoute'])
 				redirectTo: '/'
 			})
 	$locationProvider.html5Mode(true);
-}])
-.controller('navController', ['$scope', '$location', '$route', function($scope, $location, $route){
-	$scope.paths = [
-		{'name':'home', 'class':''},
-		{'name':'about', 'class':''},
-		{'name':'lights', 'class':''},
-		{'name':'music', 'class':''},
-		{'name':'ssh', 'class':''},
-		{'name':'chrome', 'class':''}
-	];
-	$scope.$on('$routeChangeSuccess', function(){
-    	if($location.url() == "/"){
-    		$scope.show = 0;
-    	}
-    	else{
-    		$scope.show = 1;
-    		for(var x = 0; x < $scope.paths.length; x++){
-    			if($location.url().substring(1) == $scope.paths[x].name){
-    				$scope.paths[x].class = "active";
-    			}
-    			else{
-    				$scope.paths[x].class = "";
-    			}
-    		}
-    	}
- 	});
 }]);
 
 
