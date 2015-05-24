@@ -1,4 +1,4 @@
-var socket = io.connect('http://localhost:8080');
+var socket = io.connect('http://billyz.me');
 var socketChrome = io.connect('http://chrome.localtunnel.me');
 var verified;
 var loggedIn = 0;

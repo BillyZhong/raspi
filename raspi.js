@@ -31,7 +31,7 @@ app.get('*', function(req,res){
 	res.sendFile(pathname + '/index.html');
 });
 
-var server = app.listen(8080);
+var server = app.listen(80);
 var io = socket.listen(server);
 
 var lights = 0;
